@@ -1,6 +1,10 @@
 
 	libmimedir
 
+0.5.2:	2025-January-25
+
+	* Rebuild for Debian Bookworm..
+	
 0.5.1:	2008-June-3
 
 	* Adam Williamson's -rpath fix for 64bit ABI on Mandriva.

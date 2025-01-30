@@ -1,3 +1,9 @@
+libmimedir (0.5.2-1debian1~bookworm1) stable; urgency=medium
+
+  * rebuild for Debian Bookworm.
+
+ -- Gustavo Perez Reyes <ghreyes71@gmail.com>  Sat, 25 Jan 2025 01:13:00 -0300
+
 libmimedir (0.5.1-4ubuntu3~ppa1~xenial2) xenial; urgency=medium
 
   * add libtool-bin to Build-Depends
