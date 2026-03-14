@@ -1,0 +1,2 @@
+# First packaging of libmimedir for Debian/Bookworm — no prior versions in archive
+libmimedir0: distant-prerequisite-in-shlibs libmimedir0 (>= 0.5.1-0~bookworm1) [shlibs]

@@ -1,3 +1,30 @@
+libmimedir (0.5.1-0~bookworm1) bookworm; urgency=medium
+
+  * Port to Debian 12 Bookworm.
+  * configure.in: Replace deprecated AC_PROG_LIBTOOL with LT_INIT.
+  * dirsynt.y: Replace obsolete %pure-parser with %define api.pure full;
+    add %parse-param and %lex-param for bison 3.8 compatibility; remove
+    YYPARSE_PARAM; update _mdir_error signature.
+  * parse.c: Update _mdir_parse signature to match bison 3.8 generated code.
+  * debian/control: Bump debhelper compat to 13, update Standards-Version
+    to 4.6.2. Update Maintainer. Remove XSBC-Original-Maintainer
+    (Ubuntu-specific field). Replace autotools-dev with dh-autoreconf.
+  * debian/compat: Removed; debhelper-compat in Build-Depends.
+  * debian/rules: Rewrite using dh sequencer with --with autoreconf. Add
+    override_dh_auto_build to force serial build ($(MAKE) -j1) to avoid
+    bison parallel race condition. Add override_dh_makeshlibs to pin shlibs
+    version. Add override_dh_install.
+  * debian/*.install: Update library paths to multiarch layout (usr/lib/*/).
+  * debian/not-installed: New file; exclude libmimedir.la and libmimedir.a.
+  * debian/libmimedir0.lintian-overrides: New file; suppress
+    distant-prerequisite-in-shlibs for new package without archive history.
+  * debian/source/options: New file; extend-diff-ignore for files regenerated
+    by autoreconf (configure, aclocal.m4, ltmain.sh, Makefile, etc.).
+  * debian/patches/03_bison38_compat.diff: New patch formalising bison 3.8
+    compatibility changes to dirsynt.y and parse.c.
+
+ -- Gustavo Perez Reyes <ghreyes71@gmail.com>  Tue, 03 Mar 2026 12:00:00 -0300
+
 libmimedir (0.5.1-4ubuntu3~ppa1~xenial2) xenial; urgency=medium
 
   * add libtool-bin to Build-Depends
