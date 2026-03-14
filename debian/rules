@@ -7,7 +7,7 @@ export DH_VERBOSE = 1
 
 override_dh_autoreconf:
 	libtoolize --force --copy
-	dh_autoreconf
+	ACLOCAL="aclocal -I m4" dh_autoreconf
 
 override_dh_auto_configure:
 	dh_auto_configure -- --prefix=/usr
