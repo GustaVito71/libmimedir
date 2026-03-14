@@ -1,44 +1,12 @@
-Description: <short summary of the patch>
- TODO: Put a short summary on the line above and replace this paragraph
- with a longer explanation of this change. Complete the meta-information
- with other relevant fields (see below for details). To make it easier, the
- information below has been extracted from the changelog. Adjust it or drop
- it.
- .
- libmimedir (0.5.1-0~bookworm1) bookworm; urgency=medium
- .
-   * Rebuild for Debian 12 Bookworm.
-   * Replace debhelper compat file with debhelper-compat (= 13) in Build-Depends.
-   * Remove autotools-dev build dependency (superseded by dh-autoreconf).
-   * Rewrite debian/rules to use dh sequencer with --with autoreconf.
-   * Update Standards-Version to 4.6.2.
-   * Update .install files to use multiarch paths (usr/lib/*/).
-   * Create debian/not-installed to exclude libmimedir.la.
-   * Rename configure.in to configure.ac; replace AC_PROG_LIBTOOL with LT_INIT.
+Description: Port libmimedir to Debian 12 Bookworm
+ Rebuild for Debian 12 Bookworm.
+ Replace debhelper compat file with debhelper-compat (= 13) in Build-Depends.
+ Remove autotools-dev build dependency (superseded by dh-autoreconf).
+ Rewrite debian/rules to use dh sequencer with --with autoreconf.
+ Update Standards-Version to 4.6.2.
+ Update .install files to use multiarch paths (usr/lib/*/).
+ Create debian/not-installed to exclude libmimedir.la.
+ AC_PROG_LIBTOOL replaced with LT_INIT and AC_CONFIG_MACRO_DIRS([m4]) added
+ directly in configure.in source (baked in, not as patch hunk).
 Author: Gustavo Perez Reyes <ghreyes71@gmail.com>
-
----
-The information above should follow the Patch Tagging Guidelines, please
-checkout https://dep.debian.net/deps/dep3/ to learn about the format. Here
-are templates for supplementary fields that you might want to add:
-
-Origin: (upstream|backport|vendor|other), (<patch-url>|commit:<commit-id>)
-Bug: <upstream-bugtracker-url>
-Bug-Debian: https://bugs.debian.org/<bugnumber>
-Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
-Forwarded: (no|not-needed|<patch-forwarded-url>)
-Applied-Upstream: <version>, (<commit-url>|commit:<commid-id>)
-Reviewed-By: <name and email of someone who approved/reviewed the patch>
-Last-Update: 2026-03-03
-
---- libmimedir-0.5.1.orig/configure.in
-+++ libmimedir-0.5.1/configure.in
-@@ -8,7 +8,7 @@ AC_PROG_LN_S
- AC_PROG_MAKE_SET
- AC_PROG_YACC
- AC_PROG_LEX
--AC_PROG_LIBTOOL
-+LT_INIT
- 
- dnl Checks for programs.
- 
+Last-Update: 2026-03-14
